@@ -1,4 +1,4 @@
-# java-cucumber-selenium-demo
+# SDET-Cucumber(Java)-automationpractice.com
 ## How to run this project:
 1. Configure MAVEN_HOME (if needed)
 2. Clone this project
