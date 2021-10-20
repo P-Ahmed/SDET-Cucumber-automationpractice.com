@@ -42,9 +42,30 @@ public class StepDefinitions {
         Assert.assertTrue(text.contains("Test User"));
     }
 
+    @When("^User enters valid username \"([^\"]*)\" and invalid password \"([^\"]*)\"$")
+    public void user_enters_valid_username_and_invalid_password(String username, String password) throws Exception {
+        // Write code here that turns the phrase above into concrete actions
+        Login login = new Login(driver);
+        login.doLogin(username,password);
+    }
+
+    @Then("^User cannot log in$")
+    public void user_cannot_log_in() throws Exception {
+        // Write code here that turns the phrase above into concrete actions
+        String text = driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
+        Assert.assertTrue(text.contains("Authentication failed."));
+    }
+
+    @When("^User enters invalid username \"([^\"]*)\" and valid password \"([^\"]*)\"$")
+    public void user_enters_invalid_username_and_valid_password(String username, String password) throws Exception {
+        // Write code here that turns the phrase above into concrete actions
+        Login login = new Login(driver);
+        login.doLogin(username,password);
+    }
+
     @After
     public void close_browser(){
-        driver.quit();
+        driver.close();
     }
 
 
